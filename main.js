@@ -8,22 +8,19 @@ const enemy = new Image(enemy);
 enemy.src = 'img/enemy.png';
 
 window.onload = function() {
-   canvas.width = 800
+   canvas.width = 600;
    canvas.height = 600;
-   canvas.style.width = '800px';
+   canvas.style.width = '600px';
 
-   ctx.drawImage(fondoimg, 100, 100);
+   ctx.drawImage(fondoimg, 0, 0, 200, 200);
+
+   bucle_principal();
 
 };
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowUp') {
-        playerY -= 10;
-    } else if (event.key === 'ArrowDown') {
-        playerY += 10;
-    } else if (event.key === 'ArrowLeft') {
-        playerX -= 10;
-    } else if (event.key === 'ArrowRight') {
-        playerX += 10;
-    }
-});
+function bucle_principal () {
+   
+    window.requestAnimationFrame(bucle_principal);
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    ctx.drawImage(fondoimg, 0, 0, 600, 600);
+}
